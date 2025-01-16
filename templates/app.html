@@ -28,13 +28,13 @@
 
         #submit-button {
             margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 24px;
+            font-size: 18px;
             font-weight: bold;
             color: #fff;
             background-color: #4caf50;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: not-allowed;
             transition: background-color 0.3s, cursor 0.3s;
         }
@@ -51,26 +51,15 @@
 </head>
 <body class="bg-gray-100 p-6">
 
-    <!-- Drag and Drop Zone -->
-    <div id="drop-zone" class="drop-zone">
-        <p>Drag & drop your meeting notes (.txt) file here, or click to upload.</p>
-        <input id="file-input" type="file" class="hidden" accept=".txt" />
-    </div>
-
-    <button type="submit" id="submit-button" disabled>Submit</button>
-
     <form action="section1.html" method="get">
         <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg p-8">
-	                <!-- Title -->
+            <!-- Title -->
             <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Gen AI Amplifier</h1>
             <div class="grid grid-cols-12 gap-6">
                 <!-- RICEFW Sections -->
                 <div class="col-span-3 bg-gray-50 p-4 rounded-lg shadow-md">
                     <h2 class="text-lg font-semibold mb-4 text-gray-700">Menu</h2>
                     <div class="flex flex-col space-y-2">
-<!--                         <button onclick="navigateTo('section1.html')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow transition">
-                            Section 1 - VOC
-                        </button> -->
                         <button onclick="navigateTo('section2.html')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow transition">
                             Business Requirements
                         </button>
@@ -87,7 +76,6 @@
                 <div class="col-span-9 bg-gray-50 p-6 rounded-lg shadow-md">
                     <h2 class="text-lg font-semibold mb-4 text-gray-700">Enter Details</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        <!-- Choose Document -->
                         <div>
                             <label for="ricefw" class="block font-medium text-gray-600 mb-1">RICEFW Type:</label>
                             <select id="ricefw" name="ricefw" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
@@ -99,138 +87,51 @@
                                 <option value="Workflow">Workflow</option>
                             </select>
                         </div>
-                        <!-- Customer -->
                         <div>
                             <label for="customer" class="block font-medium text-gray-600 mb-1">Customer:</label>
                             <input type="text" id="customer" name="customer" placeholder="Enter Customer Name" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
                         </div>
-                        <!-- RICEFW Number -->
-                        <div>
-                            <label for="ricefw-number" class="block font-medium text-gray-600 mb-1">RICEFW /Issue Number:</label>
-                            <input type="text" id="ricefw-number" name="ricefw-number" placeholder="Enter RICEFW Number" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Module(s) -->
-                        <div>
-                            <label for="module" class="block font-medium text-gray-600 mb-1">Module(s):</label>
-                            <input type="text" id="module" name="module" placeholder="Enter Module(s)" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Specification Name -->
-                        <div>
-                            <label for="specification" class="block font-medium text-gray-600 mb-1">Specification Name:</label>
-                            <input type="text" id="specification" name="specification" placeholder="Enter Specification Name" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Brief Description -->
-                        <div>
-                            <label for="description" class="block font-medium text-gray-600 mb-1">Brief Description:</label>
-                            <input type="text" id="description" name="description" placeholder="Enter Brief Description" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Related RICEFW(s) -->
-                        <div>
-                            <label for="related-ricefw" class="block font-medium text-gray-600 mb-1">Related RICEFW(s):</label>
-                            <input type="text" id="related-ricefw" name="related-ricefw" placeholder="Enter Related RICEFW(s)" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Created By -->
-                        <div>
-                            <label for="created-by" class="block font-medium text-gray-600 mb-1">Created By:</label>
-                            <input type="text" id="created-by" name="created-by" placeholder="Enter Your Name" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Document Date -->
-                        <div>
-                            <label for="document-date" class="block font-medium text-gray-600 mb-1">Document Date:</label>
-                            <input type="date" id="document-date" name="document-date" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        <!-- Target Completion Date -->
-                        <div>
-                            <label for="completion-date" class="block font-medium text-gray-600 mb-1">Target Completion Date:</label>
-                            <input type="date" id="completion-date" name="completion-date" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" required>
-                        </div>
                     </div>
-
-                    <!-- Owners Table -->
-                    <h3 class="text-lg font-semibold mt-8 mb-4 text-gray-700">Owner Details</h3>
-                    <table class="w-full table-auto border-collapse">
-                        <thead>
-                            <tr>
-                                <th class="border border-gray-300 px-4 py-2 bg-gray-100 text-left">Role</th>
-                                <th class="border border-gray-300 px-4 py-2 bg-gray-100 text-left">Name</th>
-                                <th class="border border-gray-300 px-4 py-2 bg-gray-100 text-left">Company / Role</th>
-                                <th class="border border-gray-300 px-4 py-2 bg-gray-100 text-left">Email</th>
-                                <th class="border border-gray-300 px-4 py-2 bg-gray-100 text-left">Phone #</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border border-gray-300 px-4 py-2">Client Owner (BPO)</td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="client-owner-name" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="client-owner-company" placeholder="Enter Company / Role" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="email" name="client-owner-email" placeholder="Enter Email" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="client-owner-phone" placeholder="Enter Phone #" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 px-4 py-2">Functional Owner (Consultant)</td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="functional-owner-name" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="functional-owner-company" placeholder="Enter Company / Role" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="email" name="functional-owner-email" placeholder="Enter Email" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="functional-owner-phone" placeholder="Enter Phone #" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 px-4 py-2">Technical Owner (Consultant)</td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="technical-owner-name" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="technical-owner-company" placeholder="Enter Company / Role" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="email" name="technical-owner-email" placeholder="Enter Email" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="technical-owner-phone" placeholder="Enter Phone #" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 px-4 py-2">Developer</td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="developer-name" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="developer-company" placeholder="Enter Company / Role" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="email" name="developer-email" placeholder="Enter Email" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                                <td class="border border-gray-300 px-4 py-2"><input type="text" name="developer-phone" placeholder="Enter Phone #" class="w-full p-2 border border-gray-300 rounded-md" required></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-
                 </div>
-
-
-
-                
             </div>
 
-            
-
-
-
-            <input type="hidden" name="fileText" id="file-text">
-
-            <!-- Buttons -->
-            <div class="flex justify-between items-center mt-8">
-                <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded shadow transition">
-                    Generate Document
-                </button>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded shadow transition">
-                    Preview
-                </button>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded shadow transition">
-                    Proceed Further
-                </button>
+            <!-- Drag and Drop File Section -->
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">Upload File</h2>
+                <div class="drop-zone" id="drop-zone">
+                    Drag & Drop your file here or click to select
+                    <input type="file" id="file-input" class="hidden" required>
+                </div>
             </div>
 
+            <!-- Submit Button -->
+            <div class="flex justify-end mt-6">
+                <button type="submit" id="submit-button" disabled>Submit</button>
+            </div>
         </div>
     </form>
 
     <script>
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file-input');
-        const fileContentInput = document.getElementById('file-text');
         const submitButton = document.getElementById('submit-button');
 
-        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-        dropZone.addEventListener('dragover', (event) => {
-            event.preventDefault();
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                dropZone.textContent = fileInput.files[0].name;
+                submitButton.disabled = false;
+            } else {
+                dropZone.textContent = 'Drag & Drop your file here or click to select';
+                submitButton.disabled = true;
+            }
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
             dropZone.classList.add('dragging');
         });
 
@@ -238,28 +139,14 @@
             dropZone.classList.remove('dragging');
         });
 
-        dropZone.addEventListener('drop', async (event) => {
-            event.preventDefault();
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
             dropZone.classList.remove('dragging');
-
-            const file = event.dataTransfer.files[0];
-            if (file && file.type === 'text/plain') {
-                const text = await file.text();
-                fileContentInput.value = encodeURIComponent(text);
+            const file = e.dataTransfer.files[0];
+            if (file) {
+                fileInput.files = e.dataTransfer.files;
+                dropZone.textContent = file.name;
                 submitButton.disabled = false;
-            } else {
-                alert('Please upload a valid .txt file.');
-            }
-        });
-
-        fileInput.addEventListener('change', async () => {
-            const file = fileInput.files[0];
-            if (file && file.type === 'text/plain') {
-                const text = await file.text();
-                fileContentInput.value = encodeURIComponent(text);
-                submitButton.disabled = false;
-            } else {
-                alert('Please upload a valid .txt file.');
             }
         });
     </script>
